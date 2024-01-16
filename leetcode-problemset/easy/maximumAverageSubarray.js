@@ -13,6 +13,30 @@
 // 1 <= k <= n <= 30,000.
 // Elements of the given array will be in the range [-10,000, 10,000].
 
+//Sliding Window Approach
+
+var findMaxAverage = function(nums, k) {
+
+    let sum = 0;
+
+    for (let i = 0; i < k; i++){
+        sum += nums[i]
+    }
+
+    let largest = sum
+
+    for (let j = k; j < nums.length; j++){
+        sum = sum + nums[j] - nums[j-k]
+
+        largest = Math.max(largest, sum);
+    }
+
+    return largest/k
+
+}
+
+
+//Pointer Approach
 
 var findMaxAverage = function(nums, k) {
     
