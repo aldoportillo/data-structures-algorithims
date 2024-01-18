@@ -18,21 +18,31 @@
     
 // };
 
+// var missingNumber = function(nums) {
+
+//     let hash = {}
+
+//     for (let i = 0; i < nums.length; i++) {
+//         hash[nums[i]] = true;
+//     }
+    
+//     for (let i = 0; i <= nums.length; i++) {
+//         if (!hash[i]) {
+//             return i;
+//         }
+//     }
+
+    
+// };
+
+
 var missingNumber = function(nums) {
-
-    let hash = {}
-
-    for (let i = 0; i < nums.length; i++) {
-        hash[nums[i]] = true;
-    }
+    let targetSum = (nums.length * (nums.length + 1)) / 2;
     
-    for (let i = 0; i <= nums.length; i++) {
-        if (!hash[i]) {
-            return i;
-        }
+    for (let i = 0; i < nums.length; i++){
+        targetSum -= nums[i]
     }
-
-    
+    return targetSum
 };
 
-console.log(missingNumber([3,0,1]))
+console.log(missingNumber([3,0, 2, 1, 4, 5, 6, 7, 8, 9, 10, 11, 12]))
